@@ -22,10 +22,11 @@ const controller = {
     },
     setOperator: op => {
         state.operator = op;
-    };
+    },
     clear: () => {
         state.value = '0';
         state.prev = '';
+        state.operator = '';
     },
     evaluate: (prev, state, operator) => {
         const prevNum = Number(prev), stateNum = Number(state);
