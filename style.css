@@ -20,6 +20,7 @@ body {
 
 #screen {
     background-color: gray;
+    height: 75px;
     color: white;
     padding: 0;
     padding-right: .25em;
