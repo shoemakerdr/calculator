@@ -25,6 +25,9 @@ body {
     padding: 0;
     padding-right: .25em;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 #buttons {
