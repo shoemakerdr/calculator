@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         evaluate: () => {
             if (model.operator) {
                 const prevNum = Number(model.prev), stateNum = Number(model.state);
-                const newState = calc[model.operator](prevNum, stateNum);
+                const newState = String(calc[model.operator](prevNum, stateNum));
                 controller.setState(newState);
                 model.prev = '';
                 model.operator = '';
