@@ -127,6 +127,15 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons: document.getElementById('buttons'),
         screen: document.getElementById('screen'),
         render: state => {
+            if (state.length > 15) {
+                view.screen.style.fontSize = '.3em';
+            }
+            if (state.length > 7 && state.length <= 15) {
+                view.screen.style.fontSize = '.5em'
+            }
+            if (state.length <= 7) {
+                view.screen.style.fontSize = '1em'
+            }
             view.screen.innerHTML = state;
         },
         bindEvents: () => {
