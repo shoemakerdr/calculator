@@ -71,6 +71,14 @@ button:focus {
     background-color: #dbdbdb;
 }
 
+.operators:active {
+    background-color: #ff7089;
+}
+
+.stateChangers:active {
+    background-color: #bcbcbc;
+}
+
 #zero {
     width: 50%;
     height: 2em;
