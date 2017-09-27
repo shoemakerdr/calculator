@@ -1,25 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
 body {
     font-size: 4em;
-    background-color: #afedf7;
+    background-color: #3a3a3a;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-top: 1em;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .calculator {
     position: relative;
     background-color: #444;
     width: 4em;
-    border-style: solid;
-    border-width: .1em;
-    border-color: #444;
+    /*border-style: solid;*/
+    /*border-width: .1em;*/
+    /*border-color: #444;*/
     box-shadow: 0 14px 28px 
     rgba(0,0,0,0.25), 0 10px 10px 
     rgba(0,0,0,0.22);
+    background-image: url('./calc.png');
+    background-size: 200%;
 }
 
 #screen {
-    background-color: gray;
+    background: linear-gradient(45deg, #325718, #628f24);
     height: 75px;
     color: white;
     padding: 0;
@@ -43,11 +49,17 @@ body {
 }
 
 .stateChangers {
-    background-color: white;
+    background-color: rgba(25,25,25,.1);
+    border: 1px solid rgba(44,44,44,.3);
+    font-family: 'Open Sans', sans-serif;
+    color: white;
 }
 
 .operators {
-    background-color: pink;
+    background-color: rgba(20,20,20,.3);
+    border: 1px solid rgba(44,44,44,.3);
+    font-family: 'Open Sans', sans-serif;
+    color: white;
 }
 
 button {
@@ -64,19 +76,19 @@ button:focus {
 }
 
 .operators:hover {
-    background-color: #ff899e;
+    background-color: rgba(20,20,20,.5);
 }
 
 .stateChangers:hover {
-    background-color: #dbdbdb;
+    background-color: rgba(25,25,25,.3);
 }
 
 .operators:active {
-    background-color: #ff7089;
+    background-color: rgba(20,20,20,.7);
 }
 
 .stateChangers:active {
-    background-color: #bcbcbc;
+    background-color: rgba(25,25,25,.5);
 }
 
 #zero {
