@@ -131,10 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 view.screen.style.fontSize = '.3em';
             }
             if (state.length > 7 && state.length <= 15) {
-                view.screen.style.fontSize = '.5em'
+                view.screen.style.fontSize = '.4em'
             }
             if (state.length <= 7) {
-                view.screen.style.fontSize = '1em'
+                view.screen.style.fontSize = '.8em'
             }
             view.screen.innerHTML = state;
         },
