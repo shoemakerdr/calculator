@@ -82,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else controller.setState(`${model.state}${num}`);
         },
+        backspace: () => {
+            const { state } = model
+            if (state.length === 1)
+                return controller.setState('0');
+            controller.setState(state.slice(0, state.length - 1))
+        },
         setState: state => {
             model.state = state;
             view.render(model.state);
@@ -126,15 +132,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const view = {
         buttons: document.getElementById('buttons'),
         screen: document.getElementById('screen'),
+        isOperatorKey: (isShifted, key) => {
+            const keys = isShifted ? [56, 187] : [106, 107, 109, 111, 189, 191];
+            return keys.indexOf(key) > -1;
+        },
+        keys: {
+            8: 'backspace',
+            13: 'evaluate',
+            46: 'clear',
+            48: 'zero',
+            49: 'one',
+            50: 'two',
+            51: 'three',
+            52: 'four',
+            53: 'five',
+            54: 'six',
+            55: 'seven',
+            56: 'eight',
+            57: 'nine',
+            96: 'zero',
+            97: 'one',
+            98: 'two',
+            99: 'three',
+            100: 'four',
+            101: 'five',
+            102: 'six',
+            103: 'seven',
+            104: 'eight',
+            105: 'nine',
+            106: 'multiply',
+            107: 'add',
+            109: 'subtract',
+            110: 'decimal',
+            111: 'divide',
+            187: 'evaluate',
+            189: 'subtract',
+            190: 'decimal',
+            191: 'divide',
+        },
+        shiftedKeys: {
+            53: 'percent',
+            56: 'multiply',
+            187: 'add',
+        },
         render: state => {
             if (state.length > 15) {
                 view.screen.style.fontSize = '.3em';
             }
             if (state.length > 7 && state.length <= 15) {
-                view.screen.style.fontSize = '.4em'
+                view.screen.style.fontSize = '.4em';
             }
             if (state.length <= 7) {
-                view.screen.style.fontSize = '.8em'
+                view.screen.style.fontSize = '.8em';
             }
             view.screen.innerHTML = state;
         },
@@ -144,6 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     controller.setOperator(event.target.id);
                 }
                 else controller[event.target.id]();
+            });
+            document.addEventListener('keyup', (event) => {
+                event.preventDefault();
+                let keyCommand = event.shiftKey ? view.shiftedKeys[event.which] : view.keys[event.which];
+                if (keyCommand) {
+                    if (view.isOperatorKey(event.shiftKey, event.which))
+                        controller.setOperator(keyCommand);
+                    else
+                        controller[keyCommand]();
+                }
             });
         },
         init: () => {
