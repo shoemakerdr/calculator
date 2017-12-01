@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
         keys: {
             8: 'backspace',
             13: 'evaluate',
+            27: 'clear',
             46: 'clear',
             48: 'zero',
             49: 'one',
